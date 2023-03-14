@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Keania+One&display=swap');
+      </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="mdy">
+                    <span>DATE</span>
+                    <span>MONTH</span>
+                    <span>YEAR</span>
+                </div>
+                <div class="mdy1">
+                    <span id="date"></span>
+                    <span id="dash">-</span>
+                    <span id="month"></span>
+                    <span id="dash">-</span>
+                    <span id="year"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="hms">
+                    <span>HOUR</span>
+                    <span>MINUTE</span>
+                    <span>SECOND</span>
+                </div>
+                <div class="hms1">
+                    <span id="hour"></span>
+                    <span id="dot">:</span>
+                    <span id="minute"></span>
+                    <span id="dot">:</span>
+                    <span id="second"></span>
+                </div>
+            </div>
+            
+
+            <div class="row1">
+                <div class="col1">
+                    <div class="col3">
+                    <div class="icon">
+                    <div class="suncircle circle"></div>
+                    <div class="sun">
+                        <h3 class="sunday">SUN</h3>
+                    </div>
+                    </div>
+                    
+                    <div class="icon">
+                    <div class="moncircle circle"></div>
+                    <div class="sun">
+                        <h3 class="monday">MON</h3>
+                    </div>
+                    </div>
+
+                    <div class="icon">
+                    <div class="tuecircle circle"></div>
+                    <div class="sun">
+                        <h3 class="tuesday">TUE</h3>
+                    </div>
+                    </div>
+
+                    <div class="icon">
+                    <div class="wedcircle circle"></div>
+                    <div class="sun">
+                        <h3 class="wednesday">WED</h3>
+                    </div>
+                    </div>
+                    </div>
+
+                    <div class="col3">
+                    <div class="icon">
+                    <div class="thucircle circle"></div>
+                    <div class="sun">
+                        <h3 class="thursday">THU</h3>
+                    </div>
+                    </div>
+
+                    <div class="icon">
+                    <div class="fricircle circle"></div>
+                    <div class="sun">
+                        <h3 class="friday">FRI</h3>
+                    </div>
+                    </div>
+
+                    <div class="icon">
+                    <div class="satcircle circle"></div>
+                    <div class="sun">
+                        <h3 class="saturday">SAT</h3>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col2">
+                    <div class="amcircle circle"></div>
+                    <div class="sun">
+                        <h3 class="am">AM</h3>
+                    </div>
+
+                    <div class="pmcircle circle"></div>
+                    <div class="sun">
+                        <h3 class="pm">PM</h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script>
+            let a = new Date();
+            let b = a.getMonth() + 1;
+            let c = a.getDate();
+            let d = a.getFullYear();
+
+            
+
+            let e = a.getHours();
+            let f = a.getMinutes();
+            let g = a.getSeconds();
+
+            let h = a.getDay();
+            
+
+            let month = document.querySelector('#month');
+            let date = document.querySelector('#date');
+            let year = document.querySelector('#year');
+
+            let hour = document.querySelector('#hour');
+            let minute = document.querySelector('#minute');
+            let second = document.querySelector('#second');
+
+            b = b < 10 ?  "0" + b : b;
+            c = c < 10 ?  "0" + c : c;
+
+            month.innerHTML = b;
+
+            date.innerHTML = c;
+
+            year.innerHTML = d;
+
+            function display() {
+
+                let a = new Date();
+                let e = a.getHours();
+                
+                e = e > 12 ? e - 12 : e;
+                e = e < 10 ?  "0" + e : e;
+                hour.innerHTML = e;
+
+                let f = a.getMinutes();
+                f = f < 10 ?  "0" + f : f;
+                minute.innerHTML = f;
+
+                let g = a.getSeconds();
+                g = g < 10 ?  "0" + g : g;
+                second.innerHTML = g;
+            }
+            setInterval(display, 0);
+
+            let suncircle = document.querySelector('.suncircle');
+            let moncircle = document.querySelector('.moncircle');
+            let tuecircle = document.querySelector('.tuecircle');
+            let wedcircle = document.querySelector('.wedcircle');
+            let thucircle = document.querySelector('.thucircle');
+            let fricircle = document.querySelector('.fricircle');
+            let satcircle = document.querySelector('.satcircle');
+
+            if (0 == h) {
+                suncircle.classList.add("mystytle");
+            }
+            else if (1 == h) {
+                moncircle.classList.add("mystytle");
+            }
+            else if (2 == h) {
+                tuecircle.classList.add("mystytle");
+            }
+            else if (3 == h) {
+                wedcircle.classList.add("mystytle");
+            }
+            else if (4 == h) {
+                thucircle.classList.add("mystytle");
+            }
+            else if (5 == h) {
+                fricircle.classList.add("mystytle");
+            }
+            else if (6 == h) {
+                satcircle.classList.add("mystytle");
+            }
+
+            let amcircle = document.querySelector('.amcircle');
+            let pmcircle = document.querySelector('.pmcircle');
+
+            if (12 > e) {
+                amcircle.classList.add('last');
+            }
+            else {
+                pmcircle.classList.add('last');
+            }
+
+        </script>
+</body>
+
+</html>
